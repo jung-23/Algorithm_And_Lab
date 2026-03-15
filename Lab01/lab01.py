@@ -29,7 +29,7 @@ class xpowern:
     def power4(self,x,n):
         result=1
         while n>0:
-            if n%w2==1:
+            if n%2==1:
                 result *=x
             x *=x
             n=n//2
