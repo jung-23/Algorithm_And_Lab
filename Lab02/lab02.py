@@ -57,6 +57,6 @@ class part03:
     def Stair_matrix_power(self,n):
         if n <=1:
             return 1
-        M=[1,1],[1,0]
+        M=[[1,1],[1,0]]
         R = self.power(M,n-1)
         return R[0][0] + R[0][1]
