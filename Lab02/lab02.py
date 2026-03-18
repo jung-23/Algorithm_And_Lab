@@ -17,7 +17,7 @@ class part02:
             else:
                 return A[n-1]
     
-    def grapg_complete(self, A,n):
+    def grapgh_complete(self, A,n):
         if n==1:
             return 1
         if not self.grapg_complete(A,n-1):
@@ -42,8 +42,8 @@ class part03:
         return S[n]
     
     def multiply(self,A,B):
-        return [A[0][0]*B[0][0]+A[0][0]*B[0][0],A[0][0]*B[0][1]+A[0][1]*B[1][1],
-                A[1][0]*B[0][0]+A[1][1]*B[1][0],A[1][0]*B[0][1]+A[1][1]*B[1][1]]
+        return [[A[0][0]*B[0][0]+A[0][1]*B[1][0],A[0][0]*B[0][1]+A[0][1]*B[1][1]],
+                [A[1][0]*B[0][0]+A[1][1]*B[1][0],A[1][0]*B[0][1]+A[1][1]*B[1][1]]]
 
     def power(self,M,n):
         if n ==1 :
@@ -51,7 +51,7 @@ class part03:
         half=self.power(M,n//2)
         result = self.multiply(half, half)
         if n%2 == 1:
-            result = self.multiply(half,M)
+            result = self.multiply(result,M)
         return result
 
     def Stair_matrix_power(self,n):
