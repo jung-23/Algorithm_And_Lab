@@ -30,7 +30,7 @@ class part02:
     def grapgh_complete(self, A,n):
         if n==1:
             return 1
-        if not self.grapg_complete(A,n-1):
+        if not self.grapgh_complete(A,n-1):
             return 0
         for j in range(0,n-1):
             if A[n-1][j] == 0:
