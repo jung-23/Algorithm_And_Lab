@@ -1,4 +1,8 @@
 class part02:
+    
+    #input : A= [[1,2,3],
+    #            [2,4,5],
+    #            [3,5,6]]
     def enigma(self,A):
         n=len(A)
         for i in range(0,n-1):
@@ -7,6 +11,7 @@ class part02:
                     return False
         return True
     
+    #input : B=[2,6,8,3,9,0,11,45,67,90,1]
     def riddle(self,A,n):
         if n==1:
             return A[0]
@@ -17,6 +22,11 @@ class part02:
             else:
                 return A[n-1]
     
+    #input : G=[[0,1,1,1,1],
+    #           [1,0,1,1,1],
+    #           [1,1,0,1,1],
+    #           [1,1,1,0,1],
+    #           [1,1,1,1,0]]
     def grapgh_complete(self, A,n):
         if n==1:
             return 1
