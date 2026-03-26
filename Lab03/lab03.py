@@ -83,4 +83,3 @@ class LZSSM:
         return p
     
     def LZSSM_Prefix(self,M):
-        pass
