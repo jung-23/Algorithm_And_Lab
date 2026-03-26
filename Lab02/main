@@ -12,7 +12,7 @@ def tst_part02():
     print("Smallest elemet: ",part2.riddle(B,len(B)))
 
     G=[[0,1,1,1,1],[1,0,1,1,1],[1,1,0,1,1],[1,1,1,0,1],[1,1,1,1,0]]
-    print("Complete? = ",part2.grapg_complete(G,len(G)))
+    print("Complete? = ",part2.grapgh_complete(G,len(G)))
 
 def tst_part03():
     part3 = part03()

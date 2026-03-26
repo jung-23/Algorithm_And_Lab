@@ -1,4 +1,8 @@
 class part02:
+    
+    #input : A= [[1,2,3],
+    #            [2,4,5],
+    #            [3,5,6]]
     def enigma(self,A):
         n=len(A)
         for i in range(0,n-1):
@@ -7,6 +11,7 @@ class part02:
                     return False
         return True
     
+    #input : B=[2,6,8,3,9,0,11,45,67,90,1]
     def riddle(self,A,n):
         if n==1:
             return A[0]
@@ -17,10 +22,15 @@ class part02:
             else:
                 return A[n-1]
     
-    def grapg_complete(self, A,n):
+    #input : G=[[0,1,1,1,1],
+    #           [1,0,1,1,1],
+    #           [1,1,0,1,1],
+    #           [1,1,1,0,1],
+    #           [1,1,1,1,0]]
+    def grapgh_complete(self, A,n):
         if n==1:
             return 1
-        if not self.grapg_complete(A,n-1):
+        if not self.grapgh_complete(A,n-1):
             return 0
         for j in range(0,n-1):
             if A[n-1][j] == 0:
@@ -42,8 +52,8 @@ class part03:
         return S[n]
     
     def multiply(self,A,B):
-        return [A[0][0]*B[0][0]+A[0][0]*B[0][0],A[0][0]*B[0][1]+A[0][1]*B[1][1],
-                A[1][0]*B[0][0]+A[1][1]*B[1][0],A[1][0]*B[0][1]+A[1][1]*B[1][1]]
+        return [[A[0][0]*B[0][0]+A[0][1]*B[1][0],A[0][0]*B[0][1]+A[0][1]*B[1][1]],
+                [A[1][0]*B[0][0]+A[1][1]*B[1][0],A[1][0]*B[0][1]+A[1][1]*B[1][1]]]
 
     def power(self,M,n):
         if n ==1 :
@@ -51,7 +61,7 @@ class part03:
         half=self.power(M,n//2)
         result = self.multiply(half, half)
         if n%2 == 1:
-            result = self.multiply(half,M)
+            result = self.multiply(result,M)
         return result
 
     def Stair_matrix_power(self,n):
