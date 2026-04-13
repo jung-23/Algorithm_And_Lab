@@ -25,6 +25,8 @@ def tst_intervalsearch():
     print('Fibonacci search',ints.fibonacci_search(B,key))
 
     print('Exponential search',ints.exponential_search(B,key))
+
+    print('jump search',ints.jump_search(B,key))
     
 
 def tst_linearsearch():
@@ -71,12 +73,12 @@ def tst_minmaxsearch():
     print("tournament selection - Max:", mms.tournament_selection(A))
 
 def main():
-    #tst_linearsearch()
-    #tst_intervalsearch()
-    #tst_minmaxsearch()
+    # tst_linearsearch()
+    tst_intervalsearch()
+    # tst_minmaxsearch()
     # tst_ranksearch()
-    tst_postofficelocation()
-    tst_fakecoin()
+    # tst_postofficelocation()
+    # tst_fakecoin()
 
 
 

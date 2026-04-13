@@ -161,6 +161,22 @@ class intervalsearch:
             return self.ternary_search_recursive(A, m2 + 1, right, key)
         else:
             return self.ternary_search_recursive(A, m1 + 1, m2 - 1, key)
+        
+    def jump_search(self, A, key):
+            n = len(A)
+            step = int(n**0.5)
+            prev = 0
+
+            while A[min(step, n)-1] < key:
+                prev = step
+                step += int(n**0.5)
+                if prev >= n:
+                    return -1
+
+            for i in range(prev, min(step, n)):
+                if A[i] == key:
+                    return i
+            return -1
 
 class ranksearch:
     def partion(self, A, low, high):
