@@ -146,3 +146,37 @@ class Sdoku:
             print("Number of promising nodes:", self.non)
         else:
             print("No solution exists")
+
+
+
+class GraphColoring:
+    def __init__(self,g,m):
+        N =len(g)
+        Color = [0]*N
+        self.colors = [ "","Red","Green","Blue","Black","pink","Aqua","Brown"]
+        if not self.graghColor(N,g,m,Color,0):
+            print("No solution")
+        else:
+            self.printsoulution(Color)
+
+    def printsoulution(self,solution):
+        print( 'Assighned colors : ')
+        for vix in range(len(solution)):
+            print("The certex {} is assigned {} color".format(vix,self.colors[solution[vix]]))
+
+    def ispromising(self, n ,gragh, vertex,color,c):
+        for i in range(n):
+            if gragh[vertex][i] == 1 and color[i] == c:
+                return False
+        return True
+    
+    def graghColor(self, n, gragh, m, color, vertex):
+        if vertex == n:
+            return True
+        for c in range(1,m+1):
+            if self.ispromising(n,gragh,vertex,color,c):
+                color[vertex] = c
+                if self.graghColor(n,gragh,m,color,vertex+1):
+                    return True
+                color[vertex] = 0
+        return False

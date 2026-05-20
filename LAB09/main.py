@@ -1,4 +1,4 @@
-from lab09 import permutaltions,NQueens,SumSS,Sdoku
+from lab09 import permutaltions,NQueens,SumSS,Sdoku,GraphColoring
 
 def tstPermutation():
     st = "ABC"
@@ -29,8 +29,17 @@ def tstSudoku():
     sk = Sdoku(g)
     sk.run()
 
+def tstgraphColoring():
+    graph = [[0,1,0,0,1],
+             [1,0,1,0,0],
+             [0,1,0,1,0],
+             [0,0,1,0,1],
+             [1,0,0,1,0]]
+    m = 3
+    gc = GraphColoring(graph,m)
+
 def main():
-    tstSudoku()
+    tstgraphColoring()
 
 
 
