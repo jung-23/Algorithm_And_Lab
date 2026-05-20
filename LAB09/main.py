@@ -1,19 +1,17 @@
-from lab09 import permutaltions,NQueens,SumSS,Sdoku,GraphColoring
+from lab09 import permutaltions,NQueens,SumSS,Sdoku,GraphColoring,pathMaze
 
 def tstPermutation():
     st = "ABC"
     per = permutaltions(st)
-    print("Total permutation",per.np)
 
 def tstnQueens():
-    nq=NQueens(10)
+    nq=NQueens(4)
 
 def tstsumss():
-    S = [4,3,6,1,6]
-    W = 13
+    S = [1,3,7]
+    W = 8
 
     ss = SumSS(S,W)
-    print("Total nodes", ss.nn, " promissing nodes : ", ss.pn)
 
 def tstSudoku():
     g = [[3,0,6,5,0,8,4,0,0],
@@ -38,12 +36,48 @@ def tstgraphColoring():
     m = 3
     gc = GraphColoring(graph,m)
 
+def tstPathMaze():
+    maze =[[1,0,1,1,0],
+           [1,0,1,1,1],
+           [1,1,1,0,1],
+           [0,1,1,1,1],
+           [0,1,1,1,1]]
+    
+    mp = pathMaze(maze)
+
 def main():
-    tstgraphColoring()
+    tests = {
+        "1": ("tstPermutation",  tstPermutation),
+        "2": ("tstnQueens",      tstnQueens),
+        "3": ("tstsumss",        tstsumss),
+        "4": ("tstSudoku",       tstSudoku),
+        "5": ("tstgraphColoring",tstgraphColoring),
+        "6": ("tstPathMaze",     tstPathMaze),
+    }
 
+    while True:
+        print("\n" + "=" * 40)
+        for key, (name, _) in tests.items():
+            print(f"  [{key}] {name}")
+        print("  [0] 종료")
+        print("=" * 40)
 
+        choice = input("번호 입력 → ").strip()
 
-
+        if choice == "0":
+            print("종료합니다.")
+            break
+        elif choice in tests:
+            name, fn = tests[choice]
+            print(f"\n--- {name} ---")
+            fn()
+            print("\n[m] 메뉴로  [0] 종료")
+            after = input("→ ").strip()
+            if after == "0":
+                print("종료합니다.")
+                break
+        else:
+            print("없는 번호입니다.")
 
 if __name__=="__main__":
     main()
